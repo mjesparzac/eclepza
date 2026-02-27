@@ -1,530 +1,637 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>LATENTE | Mónica & Kelly</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <title>ECLEPZA | Entidad Artística</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
-  --bg: #f6f4ef;
-  --dark: #121212;
-  --accent: #b06a4a;
-  --soft: #7c7c7c;
-  --light: #ffffff;
-  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* BASE */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg);
-  color: var(--dark);
-  line-height: 1.7;
-}
-
-section {
-  padding: 100px 8%;
-}
-
-/* TITULOS */
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-}
-
-h1 {
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  letter-spacing: 6px;
-}
-
-h2 {
-  font-size: 2.6rem;
-  margin-bottom: 30px;
-}
-
-p {
-  font-size: 1rem;
-  color: var(--soft);
-  max-width: 700px;
-}
-
-/* NAV */
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 18px 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(8px);
-  z-index: 10;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 3px;
-  font-size: 20px;
-  color: var(--light);
-}
-
-.nav nav a {
-  margin-left: 28px;
-  text-decoration: none;
-  color: #eee;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.nav nav a:hover {
-  opacity: 0.6;
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  background: linear-gradient(rgba(10,25,47,0.6), rgba(10,25,47,0.4)), url("images/fondo.png");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--light);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: var(--light);
-  max-width: 700px;
-}
-
-.hero-content span { 
-  letter-spacing: 6px; 
-  text-transform: uppercase; 
-  font-size: 0.9rem; 
-  color: var(--accent); 
-  display: block;
-  margin-bottom: 15px;
-}
-.hero-content p { color: #f0f0f0; margin: 30px auto; font-size: 1.2rem; font-weight: 300; }
-
-.btn-main {
-  padding: 15px 40px;
-  background: var(--accent);
-  color: white;
-  text-decoration: none;
-  border-radius: 2px;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: var(--transition);
-  display: inline-block;
-  margin: 10px;
-}
-
-.btn-outline {
-  padding: 15px 40px;
-  border: 1px solid var(--light);
-  color: var(--light);
-  text-decoration: none;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: var(--transition);
-  display: inline-block;
-  margin: 10px;
-}
-
-.btn-main:hover { background: #ab8b4b; transform: translateY(-3px); }
-
-/* PROJECT */
-.project-section {
-  background: linear-gradient(
-    180deg,
-    #0f0f0f 0%,
-    #111111 60%,
-    #0b0b0b 100%
-  );
-  color: #f6f3ee;
-}
-
-.project-text p {
-  color: #e2ded6;
-}
-
-/* ARTISTS */
-.artists-section {
-  background: var(--bg);
-  padding: 80px 8%;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.artist-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 120px;
-}
-
-.artist-row.reverse {
-  direction: rtl;
-}
-
-.artist-row.reverse .artist-text {
-  direction: ltr;
-}
-
-.artist-photo img {
-  width: 100%;
-  max-width: 420px;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
-  filter: grayscale(20%);
-  transition: filter 0.5s ease, transform 0.5s ease;
-}
-
-.artist-photo img:hover {
-    filter: grayscale(0%);
-    transform: scale(1.03);
-}
-
-.artist-text span {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  color: var(--accent);
-  margin-bottom: 20px;
-}
-
-/* SHOW */
-.show {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-}
-
-.card {
-  background: white;
-  padding: 40px;
-  border-radius: 8px;
-}
-
-/* CONTACT */
-.contact {
-  text-align: center;
-}
-
-.contact a {
-  margin-top: 30px;
-  display: inline-block;
-  background: var(--accent);
-  color: white;
-  padding: 14px 34px;
-  border-radius: 30px;
-  text-decoration: none;
-}
-
-/* FOOTER */
-footer {
-  padding: 40px;
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--soft);
-}
-
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-}
-
-.video-wrapper iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-.artist-social {
-  display: flex;
-  gap: 16px;
-  margin: 12px 0 18px;
-}
-
-.artist-social a {
-  color: #ffffff;
-  font-size: 22px;
-  opacity: 0.75;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  color: #e5c07b; 
-}
-
-.artist-social a:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-.section-light {
-  background: var(--bg);
-}
-
-.section-white {
-  background: #ffffff;
-}
-
-.section-dark {
-  background: #111;
-  color: #f6f3ee;
-}
-
-.section-dark p {
-  color: #d8d6cf;
-}
-
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  margin-top: 50px;
-}
-
-.living-portrait {
-  position: relative;
-  overflow: hidden;
-  background-color: var(--bg-secondary); /* Color arena de fondo mientras carga */
-  line-height: 0; /* Quita espacios extra */
-}
-
-.living-portrait video {
-  width: 100%;
-  max-width: 420px;
-  object-fit: cover;
-  display: block;
-  /* El secreto: un filtro suave para unificar con la paleta tierra */
-  filter: sepia(0.2) contrast(1.05) brightness(0.95);
-  transition: filter 0.5s ease;
-}
-
-.living-portrait:hover video {
-  filter: sepia(0) contrast(1) brightness(1); /* Se aclara al pasar el mouse */
-}
-
-/* El borde decorativo que hablamos antes */
-.living-portrait::after {
-  content: '';
-  position: absolute;
-  top: 15px;
-  right: -15px;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--details); /* El color ocre/dorado */
-  z-index: -1;
-}
-
-.branding-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: var(--accent); /* Tu color terracota/oro */
-    border-top: 1px solid rgba(176, 106, 74, 0.2);
-    padding-top: 20px;
-    margin-top: 10px;
-    line-height: 1.4;
-  }
-
-  .section-formats {
-    background-color: var(--bg-secondary); /* Arena Suave */
-    padding: 100px 10%;
-    text-align: center;
-  }
-
-  .formats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-  }
-
-  .format-card {
-    background: var(--bg-primary);
-    padding: 50px 40px;
-    text-align: left;
-    border: 1px solid rgba(74, 44, 42, 0.1);
-    transition: var(--transition);
-  }
-
-  .format-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-  }
-
-  .format-card.featured {
-    border-top: 5px solid var(--accent); /* Terracota */
-  }
-
-  .format-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-  }
-
-  .format-number {
-    font-family: monospace;
-    color: var(--details);
-    font-size: 0.9rem;
-  }
-
-  .format-card h3 {
-    color: var(--text-main);
-    font-size: 1.8rem;
-  }
-
-  .format-desc {
-    font-size: 0.95rem;
-    margin-bottom: 30px;
-    color: var(--soft);
-  }
-
-  .format-list {
-    list-style: none;
-    font-size: 0.85rem;
-    color: var(--text-main);
-  }
-
-  .format-list li {
-    margin-bottom: 10px;
-  }
-
-  .format-list i {
-    color: var(--accent);
-    margin-right: 10px;
-    font-size: 0.7rem;
-  }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  section {
-    padding: 80px 6%;
-  }
-
-  .artist-row {
-    grid-template-columns: 1fr;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.92);
-    backdrop-filter: blur(10px);
-    display: none;
-    flex-direction: column;
-    padding: 30px 0;
-    text-align: center;
-  }
-
-  .nav-menu a {
-    padding: 14px 0;
-    font-size: 14px;
-    letter-spacing: 2px;
-  }
-
-  .nav-menu.active {
-    display: flex;
-  }
-
-  h1 {
-    font-size: 2.6rem;
-    letter-spacing: 3px;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  section {
-    padding: 70px 6%;
-  }
-
-  .hero-content p {
-    font-size: 0.95rem;
-  }
-
-  .artist-row {
-    gap: 40px;
-    margin-bottom: 80px;
-  }
-
-  .artist-text p {
-    font-size: 0.95rem;
-  }
-
-  .show {
-    gap: 24px;
-  }
-
-  .card {
-    padding: 30px;
-  }
-}
-
+      /* Nueva paleta Eclepza: Contraste de dualidad (Luz y Sombra) */
+      --bg-light: #f4f1eb;
+      --bg-dark: #070707;
+      --dark: #121212;
+      --light: #ffffff;
+      --accent: #c2875b; /* Un tono bronce/cobre, evocando la luz de un eclipse */
+      --soft-light: #888888;
+      --soft-dark: #a0a0a0;
+      --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* BASE */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--light);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 110px 8%;
+    }
+
+    /* TITULOS */
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      letter-spacing: 8px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 1rem;
+      max-width: 750px;
+      font-weight: 300;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 4px;
+      font-size: 22px;
+      color: var(--light);
+      text-transform: uppercase;
+    }
+
+    .nav nav a {
+      margin-left: 32px;
+      text-decoration: none;
+      color: #ddd;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+
+    .nav nav a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO - El Eclipse */
+    .hero {
+      height: 100vh;
+      /* Gradiente radial que simula la luz emergiendo de la oscuridad */
+      background: radial-gradient(circle at center, rgba(194, 135, 91, 0.15) 0%, rgba(7, 7, 7, 0.9) 70%), url("images/fondo.png");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to top, var(--bg-dark), transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content span { 
+      letter-spacing: 8px; 
+      text-transform: uppercase; 
+      font-size: 0.85rem; 
+      color: var(--accent); 
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p { 
+      color: #e0e0e0; 
+      margin: 30px auto; 
+      font-size: 1.25rem; 
+      font-weight: 300; 
+    }
+
+    .btn-main, .btn-outline {
+      padding: 16px 42px;
+      text-decoration: none;
+      border-radius: 2px;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: var(--transition);
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .btn-main {
+      background: var(--accent);
+      color: #000;
+      font-weight: 500;
+    }
+
+    .btn-main:hover { 
+      background: #df9e6e; 
+      transform: translateY(-3px); 
+      box-shadow: 0 10px 20px rgba(194, 135, 91, 0.2);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--light);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--light);
+      transform: translateY(-3px);
+    }
+
+    /* CONCEPT SECTION */
+    .concept-section {
+      background: var(--bg-dark);
+      color: var(--light);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .concept-section h2 {
+      color: var(--light);
+    }
+
+    .concept-section p {
+      color: var(--soft-dark);
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+    }
+
+    .concept-section strong {
+      color: var(--light);
+      font-weight: 400;
+    }
+
+    /* DUALITY (ARTISTS) */
+    .duality-section {
+      background: var(--bg-light);
+      color: var(--dark);
+      padding: 120px 8%;
+    }
+
+    .duality-section .section-title {
+      text-align: center;
+      margin-bottom: 100px;
+      color: var(--dark);
+    }
+
+    .artist-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+      margin-bottom: 140px;
+    }
+
+    .artist-row.reverse {
+      direction: rtl;
+    }
+
+    .artist-row.reverse .artist-text {
+      direction: ltr;
+    }
+
+    .artist-photo {
+      position: relative;
+    }
+
+    .artist-photo video, .artist-photo img {
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      filter: grayscale(80%) contrast(1.1);
+      transition: all 0.7s ease;
+    }
+
+    .artist-photo:hover video, .artist-photo:hover img {
+      filter: grayscale(0%) contrast(1);
+      transform: scale(1.02);
+    }
+
+    /* Marco decorativo evocando alineación */
+    .artist-photo::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: -20px;
+      width: 100%;
+      max-width: 460px;
+      height: 100%;
+      border: 1px solid var(--accent);
+      z-index: -1;
+      transition: var(--transition);
+    }
+
+    .artist-row.reverse .artist-photo::after {
+      right: auto;
+      left: -20px;
+    }
+
+    .artist-text h2 {
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+
+    .artist-text span {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .artist-text p {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .artist-social {
+      display: flex;
+      gap: 18px;
+      margin: 15px 0 30px;
+    }
+
+    .artist-social a {
+      color: var(--dark);
+      font-size: 20px;
+      opacity: 0.6;
+      transition: var(--transition);
+    }
+
+    .artist-social a:hover {
+      opacity: 1;
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .branding-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--dark);
+      border-left: 2px solid var(--accent);
+      padding-left: 25px;
+      margin-top: 30px;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* VIDEOS */
+    .videos-section {
+      background: var(--bg-dark);
+      text-align: center;
+    }
+
+    .videos-section p {
+      margin: 0 auto;
+      color: var(--soft-dark);
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* LÍNEAS DE DESARROLLO (Claro) */
+    .lines-section {
+      background: var(--bg-light);
+      color: var(--dark);
+      text-align: center;
+    }
+
+    .lines-section .section-title {
+      margin-bottom: 60px;
+    }
+
+    /* FORMATOS ESCÉNICOS (Oscuro) */
+    .formats-section {
+      background: var(--bg-dark);
+      color: var(--light);
+      text-align: center;
+    }
+
+    .formats-section .section-title {
+      margin-bottom: 60px;
+      color: var(--light);
+    }
+
+    /* GRID DE TARJETAS */
+    .formats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .format-card {
+      background: #ffffff;
+      padding: 60px 50px;
+      text-align: left;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .format-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 50px rgba(0,0,0,0.05);
+    }
+
+    .format-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    /* Tarjetas versión oscura */
+    .format-card.dark-card {
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .format-card.dark-card:hover {
+      box-shadow: 0 30px 50px rgba(194, 135, 91, 0.1);
+    }
+
+    .format-card.dark-card h3 {
+      color: var(--light);
+    }
+
+    .format-card.dark-card .format-desc {
+      color: var(--soft-dark);
+    }
+
+    .format-card.dark-card .format-list {
+      color: #dddddd;
+    }
+
+    .format-header {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 25px;
+    }
+
+    .format-number {
+      font-family: 'Playfair Display', serif;
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .format-card h3 {
+      color: var(--dark);
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .format-desc {
+      font-size: 1rem;
+      margin-bottom: 30px;
+      color: var(--soft-light);
+    }
+
+    .format-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+
+    .format-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .format-list i {
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    /* CONTACTO */
+    .contact {
+      background: var(--bg-dark);
+      text-align: center;
+      padding: 120px 8%;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .contact h2 {
+      font-size: 3.5rem;
+    }
+
+    .contact a.btn-contact {
+      margin-top: 40px;
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 16px 45px;
+      border-radius: 2px;
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .contact a.btn-contact:hover {
+      background: #df9e6e;
+      transform: translateY(-3px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #000;
+      padding: 40px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--soft-dark);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .artist-row {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .artist-row.reverse {
+        direction: ltr;
+      }
+      .artist-photo {
+        display: flex;
+        justify-content: center;
+      }
+      .artist-photo::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 80px 6%;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(5,5,5,0.98);
+        backdrop-filter: blur(10px);
+        display: none;
+        flex-direction: column;
+        padding: 30px 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+
+      .nav-menu a {
+        padding: 16px 0;
+        margin: 0;
+        font-size: 13px;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 3rem;
+        letter-spacing: 5px;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content p {
+        font-size: 1.05rem;
+      }
+
+      .format-card {
+        padding: 40px 30px;
+      }
+    }
   </style>
 
 </head>
-
 <body>
 
   <header class="nav">
-    <div class="logo">LATENTE</div>
+    <div class="logo">ECLEPZA</div>
 
     <button class="menu-toggle" aria-label="Abrir menú">
-      ☰
+      <i class="fa-solid fa-bars"></i>
     </button>
 
     <nav class="nav-menu">
-      <a href="#presentacion">Presentación</a>
-      <a href="#lasArtistas">Integrantes</a>
-      <a href="#videos">Videos</a>    
+      <a href="#fenomeno">El Fenómeno</a>
+      <a href="#dualidad">La Dualidad</a>
+      <a href="#dimension">Dimensión Sonora</a>  
+      <a href="#lineas">Desarrollo</a>
       <a href="#formatos">Formatos</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -533,55 +640,40 @@ footer {
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <span>Dúo Musical</span>
-      <h1>LATENTE</h1>
-      <p>Música con identidad y propósito. <br> Ritmo y melodía entrelazados en una propuesta artística honesta y contemporánea.</p>
+      <span>Entidad Artística</span>
+      <h1>ECLEPZA</h1>
+      <p>El punto preciso donde melodía y ritmo se encuentran para revelar una nueva dimensión sonora.</p>
       <div class="hero-btns">
         <a href="#contacto" class="btn-main">Contrataciones</a>
-        <a href="#" class="btn-outline">Descargar Dossier</a>
+        <a href="#fenomeno" class="btn-outline">Explorar</a>
       </div>
     </div>
   </section>
 
-  <!-- CONCEPTO -->
-  <section id="presentacion" class="project-section">
-  <div class="project-container">
+  <!-- CONCEPTO / EL FENÓMENO -->
+  <section id="fenomeno" class="concept-section">
+    <h2>El Fenómeno</h2>
+    <p>
+      <strong>ECLEPZA</strong> es una entidad artística nacida de la alineación entre dos fuerzas creativas complementarias. Más que un dúo, el proyecto representa un fenómeno de sincronía: el punto preciso donde melodía y ritmo se encuentran para revelar una nueva dimensión sonora.
+    </p>
+    <p>
+      Bajo esta premisa, las hermanas Kelly y Mónica Esparza traducen la dualidad en una experiencia musical coherente, estética y profundamente expresiva, donde la técnica y la emoción se fusionan para dar vida a un alter ego colectivo.
+    </p>
+    <p>
+      <strong>ECLEPZA</strong> concibe la música como un territorio sin fronteras, donde la emoción melódica convive con la exploración rítmica y la fusión de lenguajes. Raíz y contemporaneidad dialogan de manera orgánica, permitiendo que cada obra encuentre su propia textura, forma y pulso.
+    </p>
+    <p>
+      Más que habitar un género específico, <strong>ECLEPZA</strong> construye un lenguaje propio que se nutre de la diversidad y la transforma en identidad.
+    </p>
+  </section>
 
-    <h2 class="project-title">PRESENTACIÓN</h2>
+  <!-- LA DUALIDAD (INTEGRANTES) -->
+  <section id="dualidad" class="duality-section">
+    <h2 class="section-title">La Dualidad</h2>
 
-    <div class="project-text">
-      <p>
-        Nacidas entre melodías y sueños compartidos, Kelly y Mónica Esparza son dos hermanas que descubrieron en 
-        la música el lenguaje definitivo para expresar su esencia. Su vínculo trasciende la sangre: es la convergencia 
-        de dos visiones consagradas al arte de transformar la vida en sonido, donde cada nota es el reflejo de una 
-        historia, una emoción y una búsqueda interior constante.
-      </p><br>
-
-      <p>
-        La propuesta sonora de LATENTE es un viaje sin fronteras; un recorrido por paisajes musicales donde 
-        cada canción invita a la exploración de un nuevo mundo. En su propuesta confluyen lo ancestral y lo 
-        contemporáneo, la raíz cultural y la innovación técnica, creando un diálogo entre nuestra identidad y 
-        la magia de lo desconocido.
-      </p><br>
-
-      <p>
-        Con un mensaje honesto y poderoso, el dúo aborda temas como el amor, el empoderamiento y la conciencia social. 
-        Más que un concierto, LATENTE invita al público a habitar una experiencia transformadora, donde la música 
-        se convierte en el puente hacia una conexión genuina y universal.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-<section id="lasArtistas" class="artists-section">
-  <div class="artists-container">
-
-   <!--<h2 class="section-title">INTEGRANTES</h2>-->
-
+    <!-- Kelly -->
     <div class="artist-row">
-      <div class="artist-photo living-portrait">
+      <div class="artist-photo">
         <video autoplay muted loop playsinline poster="images/kelly-static.jpg">
           <source src="images/portadaTaty720.mp4" type="video/mp4">
         </video>
@@ -595,43 +687,30 @@ footer {
           <a href="https://www.instagram.com/kellyesparzac" target="_blank" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-
           <a href="https://www.youtube.com/@KellyEsparzaVEVO" target="_blank" aria-label="YouTube">
             <i class="fa-brands fa-youtube"></i>
           </a>
         </div>
 
         <p>
-          <strong>Cantautora, pianista y productora.</strong> Tecnóloga en Música con énfasis en Canto (Tecnológico de Artes Débora Arango) 
-          y estudiante de Canto Popular (Universidad de Antioquia). Con más de 12 años de trayectoria, Kelly es la voz conductora 
-          y la esencia melódica detrás de LATENTE.
-        </p><br>
-
-        <p>
-            Su propuesta utiliza el <strong>piano como eje creativo</strong>, proyectando una voz que transita con naturalidad 
-            entre el pop, la balada y el folk. Integra los sonidos del mundo con una interpretación honesta, logrando un equilibrio 
-            entre la técnica académica y una conexión genuina con la fibra emocional del público.
-        </p><br>
-
-        <p>
-            Como compositora, aporta la <strong>dimensión poética</strong> al dúo: diseña atmósferas íntimas y poderosas donde 
-            la palabra y la melodía dialogan con propósito, transformando cada presentación en un viaje sensorial que invita a 
-            la reflexión y al empoderamiento social.
-        </p><br>
-
-        <p class="branding-quote">
-            En LATENTE, Kelly no solo interpreta la música: <em>da voz a las historias que nos hacen latir.</em>
+          <strong>Cantautora, pianista y productora.</strong> Tecnóloga en Música con énfasis en Canto (Tecnológico de Artes Débora Arango) y estudiante de Canto Popular (Universidad de Antioquia). Con más de 12 años de trayectoria, Kelly es la voz conductora y la esencia melódica detrás de ECLEPZA.
         </p>
-    
+        <p>
+          Su propuesta utiliza el <strong>piano como eje creativo</strong>, proyectando una voz que transita con naturalidad entre el pop, la balada y el folk. Integra los sonidos del mundo con una interpretación honesta, logrando un equilibrio entre la técnica académica y una conexión genuina con la fibra emocional del público.
+        </p>
+        <p>
+          Como compositora, aporta la <strong>dimensión poética</strong> al proyecto: diseña atmósferas íntimas y poderosas donde la palabra y la melodía dialogan con propósito, transformando cada presentación en un viaje sensorial que invita a la reflexión y al empoderamiento social.
+        </p>
+
+        <div class="branding-quote">
+          En ECLEPZA, Kelly no solo interpreta la música: da voz a la dimensión emocional que nos conecta.
+        </div>
       </div>
     </div>
-  </section> 
 
-  <section class="artists-section section-dark">
-    <!-- Moni -->
+    <!-- Mónica -->
     <div class="artist-row reverse">
-      
-      <div class="artist-photo living-portrait">
+      <div class="artist-photo">
         <video autoplay muted loop playsinline poster="images/kelly-static.jpg">
           <source src="images/portadaMoni720.mp4" type="video/mp4">
         </video>
@@ -639,137 +718,174 @@ footer {
 
       <div class="artist-text">
         <h2>Mónica Esparza</h2>
-        <span>Percusión · Producción</span>
+        <span>Percusión & Producción</span>
 
         <div class="artist-social">
           <a href="https://www.instagram.com/moniesparza.drummer" target="_blank" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-
           <a href="https://www.youtube.com/@moniesparza.drummer" target="_blank" aria-label="YouTube">
             <i class="fa-brands fa-youtube"></i>
           </a>
         </div>
 
         <p>
-            <strong>Baterista, compositora y productora.</strong> Tecnóloga en Música con énfasis en batería (Tecnológico de Artes Débora Arango) 
-            e Ingeniera de Sistemas e Informática (Universidad Nacional de Colombia). Mónica es el motor rítmico y el cerebro detrás de la 
-            infraestructura técnica de LATENTE.
-        </p><br>
-
-        <p>
-            Su propuesta nace de la batería como núcleo de fuerza, expandiendo su lenguaje hacia la riqueza tímbrica de los <strong>timbales, 
-              congas y bongós</strong>. Esta integración le permite reinterpretar géneros como la cumbia y la salsa desde una mirada 
-              contemporánea, donde la tradición dialoga con nuevas formas de entender el ritmo.
-        </p><br>
-
-        <p>
-            Desde su formación en ingeniería, aporta una dimensión diferencial al dúo: lidera el <strong>diseño sonoro, la grabación y 
-              la narrativa audiovisual</strong> del proyecto. Su enfoque garantiza no solo un show técnicamente impecable, sino una 
-              experiencia estética coherente.
-        </p><br>
-
-        <p class="branding-quote">
-            En LATENTE, Mónica no solo marca el tiempo: <em>diseña el universo donde la música sucede.</em>
+          <strong>Baterista, compositora y productora.</strong> Tecnóloga en Música con énfasis en batería (Tecnológico de Artes Débora Arango) e Ingeniera de Sistemas e Informática (Universidad Nacional de Colombia). Mónica es el motor rítmico y el cerebro detrás de la infraestructura técnica de ECLEPZA.
         </p>
+        <p>
+          Su propuesta nace de la batería como núcleo de fuerza, expandiendo su lenguaje hacia la riqueza tímbrica de los <strong>timbales, congas y bongós</strong>. Esta integración le permite reinterpretar géneros como la cumbia y la salsa desde una mirada contemporánea, donde la tradición dialoga con nuevas formas de entender el ritmo.
+        </p>
+        <p>
+          Desde su formación en ingeniería, aporta una dimensión diferencial a la entidad: lidera el <strong>diseño sonoro, la grabación y la narrativa audiovisual</strong> del proyecto. Su enfoque garantiza no solo un show técnicamente impecable, sino una experiencia estética coherente.
+        </p>
+
+        <div class="branding-quote">
+          En ECLEPZA, Mónica no solo marca el tiempo: diseña el universo donde la música sucede.
+        </div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-  
-<section id="videos" class="section-white">
-  <h2>Videos</h2>
-  <p>Una propuesta sonora que transita entre lo íntimo y lo poderoso.</p>
-  <br/>
-
-  <div class="videos-grid">
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/-2MymWiAzOo" allowfullscreen></iframe>
-    </div>
-
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/TpwQNoQZXsY" allowfullscreen></iframe>
-    </div>
-
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/KPMGmd-Ei58" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-  
-<section id="formatos" class="section-formats">
-  <h2 class="section-title">Propuesta Escénica</h2>
-  
-  <div class="formats-grid">
+  <!-- DIMENSIÓN SONORA (VIDEOS) -->
+  <section id="dimension" class="videos-section">
+    <h2>Dimensión Sonora</h2>
+    <p>Una propuesta que transita entre la emoción melódica y la exploración rítmica.</p>
     
-    <div class="format-card">
-      <div class="format-header">
-        <span class="format-number">01</span>
-        <h3>Dúo Esencia</h3>
+    <div class="videos-grid">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/-2MymWiAzOo" allowfullscreen></iframe>
       </div>
-      <p class="format-desc">Voz, piano y percusión híbrida. Una experiencia íntima y técnicamente sofisticada, ideal para teatros y espacios culturales.</p>
-      <ul class="format-list">
-        <li><i class="fa-solid fa-check"></i> Diseño sonoro inmersivo</li>
-        <li><i class="fa-solid fa-check"></i> Conexión directa con el público</li>
-      </ul>
-    </div>
-
-    <div class="format-card featured">
-      <div class="format-header">
-        <span class="format-number">02</span>
-        <h3>Full Band</h3>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/TpwQNoQZXsY" allowfullscreen></iframe>
       </div>
-      <p class="format-desc">Dúo base + Músicos invitados (4 a 5 integrantes). Una propuesta expansiva diseñada para festivales y escenarios de gran formato.</p>
-      <ul class="format-list">
-        <li><i class="fa-solid fa-check"></i> Sonido de alto impacto bailable</li>
-        <li><i class="fa-solid fa-check"></i> Puesta en escena dinámica</li>
-      </ul>
-    </div>
-
-    <div class="format-card technical">
-      <div class="format-header">
-        <span class="format-number"><i class="fa-solid fa-sliders"></i></span>
-        <h3>Especificaciones</h3>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/KPMGmd-Ei58" allowfullscreen></iframe>
       </div>
-      <ul class="tech-info-list">
-        <li><strong>Duración:</strong> 60 – 75 minutos.</li>
-        <li><strong>Repertorio:</strong> Original + Versiones Latente.</li>
-        <li><strong>Requerimientos:</strong> Rider técnico disponible.</li>
-      </ul>
     </div>
+  </section>
+  
+  <!-- LÍNEAS DE DESARROLLO (CONCEPTUAL - CLARO) -->
+  <section id="lineas" class="lines-section">
+    <h2 class="section-title">Líneas de Desarrollo</h2>
+    
+    <div class="formats-grid">
+      <!-- Proyecto Autoral -->
+      <div class="format-card featured">
+        <div class="format-header">
+          <span class="format-number">Línea I</span>
+          <h3>Proyecto Autoral</h3>
+        </div>
+        <p class="format-desc">Un repertorio de música original que aborda temáticas como el amor, el empoderamiento, la identidad, el linaje y la conciencia social.</p>
+        <ul class="format-list">
+          <li><i class="fa-solid fa-circle-dot"></i> Cada presentación concebida como experiencia narrativa.</li>
+          <li><i class="fa-solid fa-circle-dot"></i> La música no solo se interpreta, se habita.</li>
+          <li><i class="fa-solid fa-circle-dot"></i> Transforma la emoción individual en conexión colectiva.</li>
+        </ul>
+      </div>
 
-  </div>
-</section>
+      <!-- Formato Escénico Adaptable -->
+      <div class="format-card">
+        <div class="format-header">
+          <span class="format-number">Línea II</span>
+          <h3>Formato Escénico Adaptable</h3>
+        </div>
+        <p class="format-desc">Una propuesta versátil para eventos culturales, institucionales y corporativos. El dúo reversiona repertorios diversos desde su identidad estética.</p>
+        <ul class="format-list">
+          <li><i class="fa-solid fa-circle-dot"></i> Alta coherencia artística y nivel interpretativo.</li>
+          <li><i class="fa-solid fa-circle-dot"></i> Sello rítmico y melódico integrado en cada pieza.</li>
+          <li><i class="fa-solid fa-circle-dot"></i> Adaptable y orgánico para distintos espacios.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <!-- IMAGEN -->
-  <section class="image-full">
-    <img src="foto-secundaria.jpg" alt="LATENTE sesión artística">
+  <!-- FORMATOS ESCÉNICOS (PRÁCTICO - OSCURO) -->
+  <section id="formatos" class="formats-section">
+    <h2 class="section-title">Formatos Escénicos</h2>
+    
+    <div class="formats-grid">
+      <!-- Dúo Esencia -->
+      <div class="format-card dark-card featured">
+        <div class="format-header">
+          <span class="format-number">01</span>
+          <h3>Dúo Esencia</h3>
+        </div>
+        <p class="format-desc">Voz, piano y percusión híbrida. Una experiencia íntima y técnicamente sofisticada, ideal para teatros y espacios culturales.</p>
+        <ul class="format-list">
+          <li><i class="fa-solid fa-circle-dot"></i> Diseño sonoro inmersivo</li>
+          <li><i class="fa-solid fa-circle-dot"></i> Conexión directa con el público</li>
+        </ul>
+      </div>
+
+      <!-- Full Band -->
+      <div class="format-card dark-card">
+        <div class="format-header">
+          <span class="format-number">02</span>
+          <h3>Full Band</h3>
+        </div>
+        <p class="format-desc">Dúo base + Músicos invitados (4 a 5 integrantes). Una propuesta expansiva diseñada para festivales y escenarios de gran formato.</p>
+        <ul class="format-list">
+          <li><i class="fa-solid fa-circle-dot"></i> Sonido de alto impacto bailable</li>
+          <li><i class="fa-solid fa-circle-dot"></i> Puesta en escena dinámica</li>
+        </ul>
+      </div>
+
+      <!-- Especificaciones Técnicas -->
+      <div class="format-card dark-card">
+        <div class="format-header">
+          <span class="format-number"><i class="fa-solid fa-sliders"></i></span>
+          <h3>Especificaciones</h3>
+        </div>
+        <p class="format-desc">Información técnica para programación de conciertos, festivales y eventos especiales.</p>
+        <ul class="format-list">
+          <li><i class="fa-solid fa-check"></i> <strong>Duración:</strong> 60 – 75 minutos.</li>
+          <li><i class="fa-solid fa-check"></i> <strong>Repertorio:</strong> Original + Versiones Eclepza.</li>
+          <li><i class="fa-solid fa-check"></i> <strong>Requerimientos:</strong> Rider técnico disponible según formato.</li>
+        </ul>
+      </div>
+
+    </div>
   </section>
 
   <!-- CONTACTO -->
   <section id="contacto" class="contact">
-    <h2>Contacto</h2>
-    <p>Para conciertos, festivales y colaboraciones.</p>
-    <a href="mailto:latente.music@gmail.com">Escríbenos</a>
+    <h2>Alineemos fuerzas.</h2>
+    <p>Para programación en festivales, conciertos, eventos y colaboraciones artísticas.</p>
+    <a href="mailto:hola@eclepza.com" class="btn-contact">Contactar</a>
   </section>
 
   <footer>
-    © LATENTE · Mónica & Kelly
+    © ECLEPZA · Mónica & Kelly Esparza
   </footer>
 
   <script>
     const toggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.nav-menu');
+    const menuLinks = document.querySelectorAll('.nav-menu a');
 
+    // Toggle menu
     toggle.addEventListener('click', () => {
       menu.classList.toggle('active');
+      const icon = toggle.querySelector('i');
+      if(menu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      } else {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
     });
 
-    menu.addEventListener('click', () => {
-      menu.classList.toggle('active');
+    // Close menu on click link
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+        const icon = toggle.querySelector('i');
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      });
     });
-</script>
+  </script>
 
 </body>
 </html>
